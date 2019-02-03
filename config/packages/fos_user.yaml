@@ -1,0 +1,25 @@
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: App\Entity\User
+
+    from_email:
+        address:        noreply@example.com
+        sender_name:    Btb Eric
+    
+    registration:
+        confirmation:
+            enabled:   true
+
+    # service:
+    #     mailer: fos_user.mailer.twig_swift
+    # resetting:
+    #     email:
+    #         template:   email/password_resetting.email.twig
+    # registration:
+    #     confirmation:
+    #         template:   '@FOSUser/Registration/email.txt.twig'
+
+    
+
+    
