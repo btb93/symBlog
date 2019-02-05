@@ -7,6 +7,9 @@
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
 </div>
 <div>
-    <a href= {{ path('fos_user_profile_edit') }}> Modifier votre Profile</a>
+    <a href= {{ path('fos_user_profile_edit') }}> Modifier votre Profile </a>
+</div>
+<div>
+    <a href= {{ path('fos_user_change_password') }}> Modifier votre mot de passe</a>
 </div>
 {% endblock body %}

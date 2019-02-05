@@ -3,12 +3,15 @@
 
 namespace App\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+use ApiPlatform\Core\Annotation\ApiResource;
+
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="utilisateur")
+ * @ApiResource()
  */
 class User extends BaseUser
 {
@@ -16,7 +19,9 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * 
      */
+
     protected $id;
 
     public function __construct()

@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Hello BlogController!{% endblock %}
-
 {% block body %}
     {% if app.user %}
-<h1>Bienvenu mr {{ app.user.username }}</h1>
-    {% else %}
-    
-    <h1>je ne suis pas connecté</h1>
-   {% endif %}
+        <h1>Bienvenu mr
+            {{ app.user.username }}
+            🙍</h1>
+        {% else %}
+        <h1>je ne suis pas connecté ⚡ ⚓💓 🌴</h1>
+    {% endif %}
 {% endblock %}
-

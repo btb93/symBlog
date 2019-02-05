@@ -4,13 +4,16 @@ fos_user:
     user_class: App\Entity\User
 
     from_email:
-        address:        noreply@example.com
+        address:        btberic9393@gmail.com
         sender_name:    Btb Eric
     
     registration:
         confirmation:
             enabled:   true
-
+        
+        # form:
+        #     type: AppBundle\Form\RegistrationType
+            
     # service:
     #     mailer: fos_user.mailer.twig_swift
     # resetting:
