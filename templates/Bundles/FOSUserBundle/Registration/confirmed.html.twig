@@ -1,14 +1,19 @@
-{% extends "@FOSUser/layout.html.twig" %}
-
+{% extends "base.html.twig" %}
+{# {% extends "@FOSUser/layout.html.twig" %} #}
 {% trans_default_domain 'FOSUserBundle' %}
-
-{% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+{# {% block fos_user_content %} #}
+{% block body %}
     <p>
-        <a href={{path('index')}}> Retour à la page d'acceuil</a>
+        {{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    <p>
+        <a href={{path('index')}}>
+            Retour à la page d'acceuil</a>
     </p>
     {% if targetUrl %}
-    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
-    
+        <p>
+            <a href="{{ targetUrl }}">
+                {{ 'registration.back'|trans }}</a>
+        </p>
     {% endif %}
-{% endblock fos_user_content %}
+{% endblock body %}
+{# {% endblock fos_user_content %} #}

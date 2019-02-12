@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block title %}Hello BlogController!{% endblock %}
+{% block body %}
+    <section class="article">
+        <div class="row">
+            <div class="col-10">
+                {% for article in article %}
+                    <article>
+                        <h2>
+                            {{article.titre}}</h2>
+                        <div class="metadata">écrit le
+                            {{article.createAt | date('d/m/Y') }}
+                            à
+                            {{article.createAt | date('H:i') }}
+                            dans la catégorie
+                            <strong>
+                                {{article.category.titre}}
+                            </strong>
+                        </div>
+                        <div class="content">
+                            <img alt="" src=" {{article.image}} ">
+                                <p>
+                                    {{article.contenu | raw }}
+                                </p>
+                                <a class="btn btn-primary" href="{{ path('blog_show', {'id': article.id , 'slug': article.slug }) }}">lire la suite</a>
+                            </div>
+                        </article>
+                        <hr>
+                        {% endfor %}
+                    </div>
+                    <div class="col">
+                        <h4>
+                            <strong>Mes offres spéciales:</strong>
+                        </h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quasi inventore voluptate provident velit dicta id nesciunt consequatur! Veritatis saepe quidem ea temporibus vel ad? Unde ipsam quia neque tempore?
+                            <button class="btn btn-success">Visite guidé</button>
+                        </div>
+                    </div>
+                    {# display navigation #}
+                    <div class="pagination ">
+                        {{ knp_pagination_render(article) }}
+                    </div>
+                </section>
+            {% endblock %}
+        

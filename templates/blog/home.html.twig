@@ -1,4 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
- <h1> C'est la page d'acceuil les amis 🔥</h1>
-{% endblock body%}
+    <div class="jumbotron">
+        <h1 class="display-4">Bienvenue dans mon Blog 🔥</h1>
+        <p class="lead">Ce blog a pour objectif de vous faire découvrir toutes les astuces sur les TIC et astuces .</p>
+        <hr class="my-4">
+            <p>Les Technologies de l'Information et de la Communication sont de nos jours obniprésents dans notre microscosme .</p>
+            <a class="btn btn-primary btn-lg" href={{ path('blog') }} role="button">Decouvrer Plus!</a>
+        </div>
+    {% endblock body%}

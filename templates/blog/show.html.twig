@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <article>
+        <h3>
+            {{article.titre}}</h3>
+        <div class="metadata">écrit le
+            {{article.createAt | date('d/m/Y') }}
+            à
+            {{article.createAt | date('H:i') }}
+            dans la catégorie
+            <strong>
+                {{article.category.titre}}
+            </strong>
+        </div>
+        <div class="content">
+            <img alt="" src=" {{article.image}} ">
+                <p>
+                    {{article.contenu | raw }}
+                </p>
+            </div>
+        </article>
+        <hr>
+            <section class="show_comments">
+                <h3>
+                    {{article.commentaires | length }}
+                    commentaire(s)
+                </h3>
+                {% for comment in article.commentaires %}
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-3">
+                                {{comment.auteur}}
+                                (<span>
+                                    {{ comment.createdAt | date('d/m/Y à H:i') }}</span>)
+                            </div>
+                            <div class="col">
+                                {{comment.contenu |raw}}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </section>
+            <hr>
+                {% if app.user %}
+                    <div class="formulaire_commentaire">
+                        {{form_start(form)}}
+                        {{form_row(form.contenu , {'attr': {'placeholder':'Entrez votre commentaire !'}})}}
+                        <button class="btn btn-primary" type="submit">Commenter !</button>
+                        {{form_end(form)}}
+                    </div>
+                    {% else %}
+                    <h3>Vous n'avez pas le droit de commenter !
+                        <a href={{ path('fos_user_security_login') }}>connectez vous ici</a>
+                    </h3>
+                {% endif %}
+            {% endblock body %}
+        
